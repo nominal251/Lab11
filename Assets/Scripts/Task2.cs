@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Task2 : MonoBehaviour
@@ -20,6 +21,26 @@ public class Task2 : MonoBehaviour
             randomNames[i] = firstNames[randomIndex];
         }
 
-        Debug.Log("Random 15 names: " + string.Join(", ", randomNames)); //testing line
+        Debug.Log("Created the name array: " + string.Join(", ", randomNames));
+
+        HashSet<string> seen = new HashSet<string>();
+        HashSet<string> duplicates = new HashSet<string>();
+
+        foreach (string name in randomNames)
+        {
+            if (!seen.Add(name))
+            {
+                duplicates.Add(name);
+            }
+        }
+
+        if (duplicates.Count > 0)
+        {
+            Debug.Log("The array has duplicate names: " + string.Join(", ", duplicates));
+        }
+        else
+        {
+            Debug.Log("The array has no duplicate names.");
+        }
     }
 }
