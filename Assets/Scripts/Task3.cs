@@ -16,7 +16,6 @@ public class Task3 : MonoBehaviour
 
     private int endGame = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         deckList = deckList.OrderBy(x => Random.value).ToList();
